@@ -7,12 +7,22 @@
 
 #ifndef DEF_MAIN
 #define DEF_MAIN
+
+#define ABS(x) ((x < 0) ? (x * -1L) : (x))
+
+#include <time.h>
+#include <grp.h>
+#include <pwd.h>
+#include <sys/types.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <fcntl.h>
-#define ABS(x) ((x < 0) ? (x * -1L) : (x))
+#include <signal.h>
+
+void my_ferror(const char *error);
 int my_printf(const char *str, ...);
+void m_check(void *m_ret);
 
 int my_putchar(int c);
 void my_swap(int *a, int *b);
@@ -51,6 +61,7 @@ int my_compute_square_root(int nb);
 
 int my_getnbr(char const *str);
 
+int my_intlen(int const *arr);
 int my_strlen(char const *str);
 int my_strcmp(char const *s1, char const *s2);
 int my_strncmp(char const *s1, char const *s2, int n);
