@@ -32,7 +32,7 @@ int my_fscanf(int file, const char *format, ...);
 
 
 void load_map(char *path, char map[2][8][8]);
-void map(char map[0][8][8]);
+void show_map(char map[0][8][8]);
 void print_win(int win);
 void game(char map[2][8][8]);
 

@@ -30,6 +30,7 @@ void game(char map[2][8][8])
     signal(SIGUSR1, &sa);
     while (win == 0)
     {
+        show_map(map);
         win = -1;
     }
     print_win(win);
