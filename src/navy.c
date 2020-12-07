@@ -11,10 +11,11 @@
 int main(int ac, char *av[])
 {
     char *path = check_arg(ac, av);
-    my_printf("%s\n", path);
+    char map[2][8][8];
+
+    //check_file(path);
     connect_process(ac);
-    /* USE THIS TO KILL A PROCESS WITH PID        
-        kill(my_getnbr(path), 9);
-    */
+    load_map(path, map);
+    game(map);
     return (0);
 }
