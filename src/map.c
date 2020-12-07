@@ -8,7 +8,7 @@
 #include "../include/my.h"
 #include "../include/navy.h"
 
-void show_map(char map[0][8][8])
+void show_map(char map[2][8][8])
 {
     my_printf("my position :\n");
     my_printf("|A B C D E F G H\n");
