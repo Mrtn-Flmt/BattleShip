@@ -36,3 +36,9 @@ void load_map(char *path, char map[2][8][8])
     map[0][buff[5] - 'A'][buff[6]- '0'] = '2';
     load_boats(map, buff);
 }
+
+void check_files(char buff[32])
+{
+    if (buff[0] != '2' || buff[1] != ':' || buff[4] != ':')
+        my_ferror("Erreur sans \n");
+}
