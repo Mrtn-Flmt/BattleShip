@@ -25,6 +25,7 @@ typedef struct coords {
 //case bateau = 'val bateau' case vide = '.' case touchée = 'x'
 void init_st(st *st, int ac, char *av[]);
 char *check_arg(int ac, char *av[]);
+int check_files(char buff[32]);
 
 int my_fopen(const char *filepath, const char accesmode);
 int my_fclose(int file);
