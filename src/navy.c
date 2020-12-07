@@ -12,6 +12,7 @@ int main(int ac, char *av[])
 {
     char *path = check_arg(ac, av);
     char map[2][8][8];
+    int p2 = (ac == 3) ? my_getnbr(av[1]) : 0;
 
     //check_file(path);
     connect_process(ac);
