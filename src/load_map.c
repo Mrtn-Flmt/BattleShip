@@ -25,7 +25,6 @@ void load_map(char *path, char map[2][8][8])
 {
     char buff[32] = {0};
     int file = my_fopen(path, 'r');
-    coords bateau[4];
 
     read(file, buff, 32);
     for (int i = 0; i < 8; i++)
