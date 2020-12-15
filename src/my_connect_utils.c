@@ -17,5 +17,4 @@ void connect_process(int ac)
     } else {
         my_printf("successfully connected\n");
     }
-    
 }
