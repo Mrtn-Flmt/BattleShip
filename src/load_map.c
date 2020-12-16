@@ -27,7 +27,7 @@ void load_map(char *path, char map[2][8][8])
     int file = my_fopen(path, 'r');
 
     read(file, buff, 32);
-    check_file(buff);
+    //check_file(buff);
     for (int i = 0; i < 8; i++)
         for (int b = 0; b < 8; b++) {
             map[0][i][b] = '.';
@@ -40,8 +40,11 @@ void load_map(char *path, char map[2][8][8])
 
 int check_file(char buff[32])
 {
+    for (int i = 0; i < 32; i++)
+        my_printf("buff[%d]=%c\n", i, buff[i]);
     if (!(buff[0] == '2' && buff[1] == buff[4] == buff[9] == buff[12] == ':'))
         my_ferror("wrong map");
     if (!(buff[8] == '3' && buff[17] == buff[20] == buff[25] == ':'))
         my_ferror("wrong map");
+    return (0);
 }
