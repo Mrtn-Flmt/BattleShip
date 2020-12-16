@@ -10,9 +10,7 @@
 
 void show_map(char map[2][8][8])
 {
-    my_printf("my positions:\n");
-    my_printf(" |A B C D E F G H\n");
-    my_printf("-+---------------\n");
+    my_printf("my positions:\n |A B C D E F G H\n-+---------------\n");
     for (int y = 0; y < 8; y++) {
         my_printf("%d|", y+1);
         for (int x = 0; x < 8; x++) {
@@ -30,4 +28,5 @@ void show_map(char map[2][8][8])
         }
         my_printf("\n");
     }
+    my_printf("\n");
 }
