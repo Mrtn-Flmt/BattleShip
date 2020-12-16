@@ -9,7 +9,7 @@
 #include "../include/navy.h"
 
 // should check if file correspond to the string format
-void check_file();
+// void check_file();
 
 // check if user input is correct or requesting help
 char *check_arg(int ac, char *av[])
