@@ -8,30 +8,42 @@
 #include "../include/my.h"
 #include "../include/navy.h"
 
-void print_win(int win)
+void game_p1(net pids, char map[2][8][8], int *win)
 {
-    if (win == 1) {
-        my_printf("I won\n");
-    } else
-        my_printf("Enemy won\n");
+    char move[4];
+
+    show_map(map);
+    send_move(ask_move(move), pids.pnb ? pids.p2 : pids.p1);
+    apply_move(map, move, get_hit(0));
+    if ((*win = check_win(map)) != 0)
+        return;
+    get_move(move, 0);
+    send_hit(apply_move(map, move, 2), pids.pnb ? pids.p2 : pids.p1);
 }
 
-void sig1(int sig)
+void game_p2(net pids, char map[2][8][8], int *win)
 {
-    my_printf("lol\n");
+    char move[4];
+
+    show_map(map);
+    get_move(move, 0);
+    send_hit(apply_move(map, move, 2), pids.pnb ? pids.p2 : pids.p1);
+    if ((*win = check_win(map)) != 0)
+        return;
+    send_move(ask_move(move), pids.pnb ? pids.p2 : pids.p1);
+    apply_move(map, move, get_hit(0));
 }
 
-void game(char map[2][8][8])
+void game(net pids, char map[2][8][8])
 {
     int win = 0;
-    struct sigaction sa = { 0 };
-    sa.sa_handler = &sig1;
 
-    signal(SIGUSR1, &sa);
     while (win == 0)
-    {
-        show_map(map);
-        win = -1;
+        if (pids.pone) {
+            game_p1(pids, map, &win);
+        } else {
+            game_p2(pids, map, &win);
+        win = check_win(map);
     }
     print_win(win);
 }
