@@ -36,7 +36,7 @@ void send_hit(int hit, int p2id)
     usleep(5000);
     kill(p2id, SIGUSR1);
     if (hit) {
-        usleep(5000);
+        usleep(10000);
         kill(p2id, SIGUSR2);
     }
     usleep(5000);

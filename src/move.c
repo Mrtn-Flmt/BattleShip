@@ -40,7 +40,7 @@ void send_move(char move[4], int p2id)
     usleep(5000);
     kill(p2id, SIGUSR1);
     for (int i = 'A'; i < move[0]; i++) {
-        usleep(5000);
+        usleep(10000);
         kill(p2id, SIGUSR2);
     }
     usleep(5000);
@@ -62,9 +62,9 @@ void get_move(char move[4], int curent_sig)
     sigaction(SIGUSR1, &s1, NULL);
     signal(SIGUSR2, next_move);
     get_mode(0);
-    pause();
     move[0] = '@';
     move[1] = '/';
+    pause();
     while ((curent_sig = get_mode(-2)) == 1) {
         move[0]++;
         pause();
