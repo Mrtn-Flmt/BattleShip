@@ -46,7 +46,7 @@ void send_move(char move[4], int p2id)
     usleep(5000);
     kill(p2id, SIGUSR1);
     for (int i = '0'; i < move[1]; i++) {
-        usleep(5000);
+        usleep(10000);
         kill(p2id, SIGUSR2);
     }
     usleep(5000);
