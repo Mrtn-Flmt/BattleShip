@@ -13,7 +13,7 @@ void game_p1(net pids, char map[2][8][8], int *win)
     char move[4];
 
     show_map(map);
-    send_move(ask_move(move), pids.p2;
+    send_move(ask_move(move), pids.p2);
     apply_move(map, move, get_hit(0));
     if ((*win = check_win(map)) != 0)
         return;
@@ -39,7 +39,7 @@ int game(net pids, char map[2][8][8])
     int win = 0;
 
     while (win == 0)
-        if (pids.pnb) {
+        if (pids.pone) {
             game_p1(pids, map, &win);
         } else {
             game_p2(pids, map, &win);

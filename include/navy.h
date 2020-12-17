@@ -15,7 +15,7 @@ typedef struct stat st;
 typedef struct net {
     int p1;
     int p2;
-    int pnb;
+    int pone;
 } net;
 
 void init_st(st *st, int ac, char *av[]);
