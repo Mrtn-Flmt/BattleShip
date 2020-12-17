@@ -37,27 +37,28 @@ char *ask_move(char move[4])
 
 void send_move(char move[4], int p2id)
 {
-    usleep(10000);
+    usleep(5000);
     kill(p2id, SIGUSR1);
     for (int i = 'A'; i < move[0]; i++) {
-        usleep(10000);
+        usleep(5000);
         kill(p2id, SIGUSR2);
     }
-    usleep(10000);
+    usleep(5000);
     kill(p2id, SIGUSR1);
     for (int i = '0'; i < move[1]; i++) {
-        usleep(10000);
+        usleep(5000);
         kill(p2id, SIGUSR2);
     }
-    usleep(10000);
+    usleep(5000);
     kill(p2id, SIGUSR1);
+    usleep(5000);
 }
 
 void get_move(char move[4], int curent_sig)
 {
     struct sigaction s1;
 
-    printf("waiting for enemy's attack...\n");
+    my_printf("waiting for enemy's attack...\n");
     s1.sa_sigaction = &send_mode;
     sigaction(SIGUSR1, &s1, NULL);
     signal(SIGUSR2, next_move);
