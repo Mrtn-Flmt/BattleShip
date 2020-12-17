@@ -15,7 +15,6 @@ typedef struct stat st;
 typedef struct net {
     int p1;
     int p2;
-    int pone;
     int pnb;
 } net;
 
