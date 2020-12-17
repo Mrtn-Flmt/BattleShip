@@ -44,7 +44,7 @@ int check_pos(char c);
 int check_hit(char map[2][8][8], char move[4], int x[2]);
 int apply_move(char map[2][8][8], char move[4], int mode);
 
-void game(net pids, char map[2][8][8]);
+int game(net pids, char map[2][8][8]);
 void game_p1(net pids, char map[2][8][8], int *win);
 void game_p2(net pids, char map[2][8][8], int *win);
 

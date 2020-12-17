@@ -34,7 +34,7 @@ void game_p2(net pids, char map[2][8][8], int *win)
     apply_move(map, move, get_hit(0));
 }
 
-void game(net pids, char map[2][8][8])
+int game(net pids, char map[2][8][8])
 {
     int win = 0;
 
@@ -46,5 +46,8 @@ void game(net pids, char map[2][8][8])
         win = check_win(map);
     }
     print_win(win);
+    if (win != 1)
+        win = 0;
+    return (win);
 }
 

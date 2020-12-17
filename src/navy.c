@@ -18,6 +18,5 @@ int main(int ac, char *av[])
     //check_file(path);
     connect_process(&pids);
     load_map(path, map);
-    game(pids, map);
-    return (0);
+    return (game(pids, map));
 }
