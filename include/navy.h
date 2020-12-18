@@ -21,6 +21,9 @@ typedef struct net {
 void init_st(st *st, int ac, char *av[]);
 char *check_arg(int ac, char *av[]);
 int check_file(char buff[32]);
+void check_vars(char buff[32]);
+void check_char(char a, char b);
+void check_nb(char a, char b);
 
 int my_fopen(const char *filepath, const char accesmode);
 int my_fclose(int file);
@@ -53,6 +56,4 @@ int check_win(char map[2][8][8]);
 void send_hit(int hit, int p2id);
 int get_hit(int curent_sig);
 void next_move(int signum);
-void check_vars(char buff[32]);
-void check_char(char a, char b);
 #endif
