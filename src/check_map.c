@@ -32,9 +32,8 @@ void check_vars(char buff[32])
 
 void check_char(char a, char b)
 {
-    if (!(a < 'A' && a > 'H')) {
+    if (!(a < 'A' && a > 'H'))
         my_ferror("wrong map");
-    if (!(b < 'A' && b > 'H')) {
+    if (!(b < 'A' && b > 'H'))
         my_ferror("wrong map");
-    }
 }

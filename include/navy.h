@@ -53,4 +53,6 @@ int check_win(char map[2][8][8]);
 void send_hit(int hit, int p2id);
 int get_hit(int curent_sig);
 void next_move(int signum);
+void check_vars(char buff[32]);
+void check_char(char a, char b);
 #endif
