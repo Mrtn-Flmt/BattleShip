@@ -35,6 +35,7 @@ void show_map(char map[2][8][8]);
 
 void connect_process(net *pids);
 int get_mode(int signal);
+void get_coord(char move[4], int mv);
 void send_mode(int signal, siginfo_t *siginfo, void *data);
 int check_move(char move[4]);
 char *ask_move(char move[4]);
@@ -55,5 +56,4 @@ int check_win(char map[2][8][8]);
 
 void send_hit(int hit, int p2id);
 int get_hit(int curent_sig);
-void next_move(int signum);
 #endif
