@@ -8,26 +8,37 @@
 #include "../include/my.h"
 #include "../include/navy.h"
 
-void load_boats(char map[2][8][8], char buff[32])
+int load_boats(char map[2][8][8], char buff[32])
 {
-    for (int i = buff[10] - 'A'; i <= buff[13] - 'A'; i++)
-        for (int b = buff[11] - '1'; b <= buff[14] - '1'; b++)
+    int b;
+    int i;
+
+    for (i = buff[10] - 'A'; i <= buff[13] - 'A'; i++)
+        for (b = buff[11] - '1'; b <= buff[14] - '1'; b++)
             map[0][i][b] = '3';
-    for (int i = buff[18] - 'A'; i <= buff[21] - 'A'; i++)
-        for (int b = buff[19] - '1'; b <= buff[22] - '1'; b++)
+    if (b != 3 && i != 3)
+            return (84);
+    for (i = buff[18] - 'A'; i <= buff[21] - 'A'; i++)
+        for (b = buff[19] - '1'; b <= buff[22] - '1'; b++)
             map[0][i][b] = '4';
-    for (int i = buff[26] - 'A'; i <= buff[29] - 'A'; i++)
-        for (int b = buff[27] - '1'; b <= buff[30] - '1'; b++)
+    if (b != 4 && i != 4)
+            return (84);
+    for (i = buff[26] - 'A'; i <= buff[29] - 'A'; i++)
+        for (b = buff[27] - '1'; b <= buff[30] - '1'; b++)
             map[0][i][b] = '5';
+    if (b != 5 && i != 5)
+        return (84);
+    return (0);
 }
 
-void load_map(char *path, char map[2][8][8])
+int load_map(char *path, char map[2][8][8])
 {
     char buff[32] = {0};
     int file = my_fopen(path, 'r');
 
     read(file, buff, 32);
-    check_file(buff);
+    if (check_file(buff) == 84)
+        return (84);
     for (int i = 0; i < 8; i++)
         for (int b = 0; b < 8; b++) {
             map[0][i][b] = '.';
@@ -35,5 +46,5 @@ void load_map(char *path, char map[2][8][8])
         }
     map[0][buff[2] - 'A'][buff[3] - '1'] = '2';
     map[0][buff[5] - 'A'][buff[6] - '1'] = '2';
-    load_boats(map, buff);
+    return (load_boats(map, buff));
 }

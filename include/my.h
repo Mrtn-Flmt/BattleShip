@@ -20,7 +20,7 @@
 #include <fcntl.h>
 #include <signal.h>
 
-void my_ferror(const char *error);
+int my_ferror(const char *error);
 int my_printf(const char *str, ...);
 void m_check(void *m_ret);
 

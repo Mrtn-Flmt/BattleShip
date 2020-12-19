@@ -8,8 +8,8 @@
 #include "../../include/my.h"
 #include "../../include/myprintf.h"
 
-void my_ferror(const char *error)
+int my_ferror(const char *error)
 {
     my_printf("%s\n", error);
-    exit(84);
+    return (84);
 }
