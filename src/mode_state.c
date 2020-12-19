@@ -11,14 +11,17 @@
 int get_mode(int signal)
 {
     static int mode = 0;
+    static int data = 0;
 
     if (signal == 0) {
         mode = 0;
-        return (0);
-    } else if (signal == -2) {
-        return (mode);
-    }
-    mode++;
+        data = 0;
+    } else if (signal == SIGUSR1)
+        mode++;
+    if (signal == SIGUSR2) {
+        data++;
+    } else if (signal == -3)
+        return (data);
     return (mode);
 }
 

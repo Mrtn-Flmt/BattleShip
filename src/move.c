@@ -37,41 +37,46 @@ char *ask_move(char move[4])
 
 void send_move(char move[4], int p2id)
 {
-    usleep(5000);
-    kill(p2id, SIGUSR1);
     for (int i = 'A'; i < move[0]; i++) {
-        usleep(5000);
+        usleep(1000);
         kill(p2id, SIGUSR2);
     }
-    usleep(5000);
+    usleep(1000);
     kill(p2id, SIGUSR1);
     for (int i = '0'; i < move[1]; i++) {
-        usleep(5000);
+        usleep(1000);
         kill(p2id, SIGUSR2);
     }
-    usleep(5000);
+    usleep(1000);
     kill(p2id, SIGUSR1);
-    usleep(5000);
 }
 
 void get_move(char move[4], int curent_sig)
 {
-    struct sigaction s1;
+    struct sigaction s1 = {0};
 
-    my_printf("waiting for enemy's attack...\n");
     s1.sa_sigaction = &send_mode;
     sigaction(SIGUSR1, &s1, NULL);
-    signal(SIGUSR2, next_move);
+    sigaction(SIGUSR2, &s1, NULL);
+    my_printf("waiting for enemy's attack...\n");
     get_mode(0);
-    move[0] = '@';
-    move[1] = '/';
-    pause();
-    while ((curent_sig = get_mode(-2)) == 1) {
-        move[0]++;
-        pause();
+    move[0] = 'A';
+    move[1] = '0';
+    while ((curent_sig = get_mode(-2)) == 0) {
+        usleep(500);
     }
-    while ((curent_sig = get_mode(-2)) == 2) {
-        move[1]++;
-        pause();
+    get_coord(move, 0);
+    while ((curent_sig = get_mode(-2)) == 0) {
+        usleep(500);
     }
+    get_coord(move, 1);
+}
+
+void get_coord(char move[4], int mv)
+{
+    if (mv == 0)
+        move[0] += get_mode(-3);
+    else
+        move[1] += get_mode(-3);
+    get_mode(0);
 }
