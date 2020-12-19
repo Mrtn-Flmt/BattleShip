@@ -10,9 +10,11 @@
 
 int check_file(char buff[32])
 {
-    if (!(buff[0] == '2' && buff[1] == ':' && buff[4] == ':' && buff[9] == ':' && buff[12] == ':'))
+    if (!(buff[0] == '2' && buff[1] == ':' && buff[4] == ':' && buff[9] == ':'
+        && buff[12] == ':'))
         my_ferror("wrong map");
-    if (!(buff[8] == '3' && buff[17] == ':' && buff[20] == ':' && buff[25] == ':'))
+    if (!(buff[8] == '3' && buff[17] == ':' && buff[20] == ':' &&
+        buff[25] == ':'))
         my_ferror("wrong map");
     if (!(buff[16] == '4' && buff[24] == '5'))
         my_ferror("wrong map");
