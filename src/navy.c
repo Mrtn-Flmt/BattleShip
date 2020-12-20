@@ -17,7 +17,8 @@ int main(int ac, char *av[])
         return (84);
     if (check_help(ac, av))
         return (0);
-    load_map(av[1], map);
+    if (load_map(ac == 2 ? av[1] : av[2], map))
+        return (84);
     connect_process(&pids);
     return (game(pids, map));
 }
