@@ -12,10 +12,10 @@
   - [x] Connection entre les deux process
   - [x] Envois d'information sur la partie
   - [x] Freeze unfreeze des programmes ou veille
-- [ ] Ouverture de la carte et vérification de celle-ci
-  - [ ] Vérification du respect absolut de l'input
-  - [ ] Vérification si il y a bien le bon nombre de bâteaux
-  - [ ] Vérif taille des bateaux
+- [x] Ouverture de la carte et vérification de celle-ci
+  - [x] Vérification du respect absolut de l'input
+  - [x] Vérification si il y a bien le bon nombre de bâteaux
+  - [x] Vérif taille des bateaux
 - [x] Loop de jeux
   - [x] Détection de l'user input
   - [x] Vérification du coup
